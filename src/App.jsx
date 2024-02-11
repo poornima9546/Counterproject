@@ -1,4 +1,4 @@
-import { Box, Button, Container, Stack, Typography } from '@mui/material'
+import { Box, Button, Container, Stack, Typography, colors } from '@mui/material'
 import React, {useState} from 'react'
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
   
   const handleSubtract = ()=>{
 
-    if(counter=0){
+    if(counter>0){
     setCounter(--counter)
     }
   }
@@ -26,8 +26,8 @@ export default function App() {
       </Typography>
 
       <Stack direction="row" spacing={2}>
-      <Button variant="outlined" onClick={handleAdd}>+</Button>
-      <Button variant="outlined" disabled={counter===0}onClick={handleSubtract}>-</Button>
+      <Button variant="outlined" onClick={handleAdd} sx={{ color: 'primary.main', borderColor: 'primary.main', backgroundColor: 'primary.light', '&:hover': { backgroundColor: 'primary.dark' } }} >+</Button>
+      <Button variant="outlined" disabled={counter===0} onClick={handleSubtract} sx={{ color: 'error.main', borderColor: 'error.main', backgroundColor: 'error.light', '&:hover': { backgroundColor: 'error.dark' } }}>-</Button>
       </Stack>
         </Box>
       </Container>
@@ -37,7 +37,7 @@ export default function App() {
 
 
 const BoxStyle={
-  backgroundColor: '#f6a9a9',
+  backgroundColor: '#28c214',
   borderRadius: '5px',
   width: '50%',
   padding: '20px',
